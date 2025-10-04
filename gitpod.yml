@@ -1,9 +1,9 @@
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
-  - name: Set Java 21 via SDKMAN
-    init: |
-      sdk install java 21-open
-      sdk default java 21-open
-      java -version
+  - name: Verify Java
+    init: java -version
 
   - name: Backend
     init: cd Backend/Corporateapp/Corporateapp && ./mvnw clean install
@@ -11,4 +11,4 @@ tasks:
 
 ports:
   - port: 8080
-    onOpen: open-browser
+    onOpen: open-preview
