@@ -1,16 +1,7 @@
-tasks:
-  - name: Setup Java 21
-    init: |
-      sudo apt update
-      sudo apt install -y openjdk-21-jdk
-      sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-21-openjdk-amd64/bin/java 21
-      sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-21-openjdk-amd64/bin/javac 21
-      sudo update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
-      sudo update-alternatives --set javac /usr/lib/jvm/java-21-openjdk-amd64/bin/javac
-      echo 'export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64' >> ~/.bash_profile
-      echo 'export PATH=$JAVA_HOME/bin:$PATH' >> ~/.bash_profile
-      source ~/.bash_profile
+image:
+  file: .gitpod.Dockerfile
 
+tasks:
   - name: Backend
     init: cd Backend/Corporateapp/Corporateapp && ./mvnw clean install
     command: cd Backend/Corporateapp/Corporateapp && ./mvnw spring-boot:run
