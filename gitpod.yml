@@ -1,14 +1,24 @@
-# .gitpod.yml
-image: gitpod/workspace-full:latest
+ # .gitpod.yml
+  image: gitpod/workspace-full:latest
 
-tasks:
+  tasks:
   - name: Backend
-    command: cd Backend && cd Corporateapp && cd Corporateapp && mvn spring-boot:run
-  - name: Frontend
-    command: cd Frontend && npm install && npm run start
+    init: cd Backend/Corporateapp/Corporateapp && ./mvnw clean install
+    command: cd Backend/Corporateapp/Corporateapp && ./mvnw spring-boot:run
 
-ports:
+  ports:
   - port: 8080
-    onOpen: open-browser
-  - port: 8081
-    onOpen: open-browser
+    onOpen: open-preview
+
+
+#tasks:
+ # - name: Backend
+  #  command: cd Backend && cd Corporateapp && cd Corporateapp && mvn spring-boot:run
+  #- name: Frontend
+   # command: cd Frontend && npm install && npm run start
+
+#ports:
+ # - port: 8080
+  #  onOpen: open-browser
+  #- port: 8081
+   # onOpen: open-browser
