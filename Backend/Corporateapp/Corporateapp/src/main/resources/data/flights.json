@@ -1,0 +1,1001 @@
+[{
+  "flight_id": 1,
+  "airline": "United Airlines",
+  "origin": "Delhi",
+  "destination": "Delhi",
+  "date": "2026-12-03",
+  "departure_time": "5:53 AM",
+  "arrival_time": "8:37 AM",
+  "price": 90924,
+  "seats_available": 10
+}, {
+  "flight_id": 2,
+  "airline": "KLM Royal Dutch Airlines",
+  "origin": "Delhi",
+  "destination": "Mumbai",
+  "date": "2025-11-09",
+  "departure_time": "7:00 AM",
+  "arrival_time": "9:31 AM",
+  "price": 48700,
+  "seats_available": 118
+}, {
+  "flight_id": 3,
+  "airline": "Ethiopian Airlines",
+  "origin": "Delhi",
+  "destination": "Bangalore",
+  "date": "2026-01-21",
+  "departure_time": "6:08 PM",
+  "arrival_time": "8:25 PM",
+  "price": 44262,
+  "seats_available": 116
+}, {
+  "flight_id": 4,
+  "airline": "British Airways",
+  "origin": "Delhi",
+  "destination": "Chennai",
+  "date": "2026-01-20",
+  "departure_time": "12:54 PM",
+  "arrival_time": "3:51 PM",
+  "price": 8862,
+  "seats_available": 26
+}, {
+  "flight_id": 5,
+  "airline": "Ethiopian Airlines",
+  "origin": "Delhi",
+  "destination": "Hyderabad",
+  "date": "2026-12-29",
+  "departure_time": "11:30 PM",
+  "arrival_time": "1:12 AM",
+  "price": 27621,
+  "seats_available": 64
+}, {
+  "flight_id": 6,
+  "airline": "Emirates",
+  "origin": "Delhi",
+  "destination": "Kolkata",
+  "date": "2026-12-14",
+  "departure_time": "4:20 AM",
+  "arrival_time": "6:42 AM",
+  "price": 52329,
+  "seats_available": 175
+}, {
+  "flight_id": 7,
+  "airline": "Delta Air Lines",
+  "origin": "Delhi",
+  "destination": "Ahmedabad",
+  "date": "2025-12-19",
+  "departure_time": "8:15 PM",
+  "arrival_time": "11:07 PM",
+  "price": 43330,
+  "seats_available": 137
+}, {
+  "flight_id": 8,
+  "airline": "Delta Air Lines",
+  "origin": "Delhi",
+  "destination": "Goa",
+  "date": "2025-12-14",
+  "departure_time": "10:27 PM",
+  "arrival_time": "11:08 PM",
+  "price": 81212,
+  "seats_available": 199
+}, {
+  "flight_id": 9,
+  "airline": "British Airways",
+  "origin": "Delhi",
+  "destination": "Pune",
+  "date": "2026-11-28",
+  "departure_time": "2:29 AM",
+  "arrival_time": "3:14 AM",
+  "price": 46560,
+  "seats_available": 67
+}, {
+  "flight_id": 10,
+  "airline": "All Nippon Airways",
+  "origin": "Delhi",
+  "destination": "Kochi",
+  "date": "2026-06-22",
+  "departure_time": "8:12 AM",
+  "arrival_time": "10:14 AM",
+  "price": 55328,
+  "seats_available": 32
+}, {
+  "flight_id": 11,
+  "airline": "SAS Scandinavian",
+  "origin": "Mumbai",
+  "destination": "Delhi",
+  "date": "2026-06-23",
+  "departure_time": "12:59 AM",
+  "arrival_time": "3:59 AM",
+  "price": 87981,
+  "seats_available": 27
+}, {
+  "flight_id": 12,
+  "airline": "Qantas",
+  "origin": "Mumbai",
+  "destination": "Mumbai",
+  "date": "2026-06-17",
+  "departure_time": "6:46 PM",
+  "arrival_time": "8:00 PM",
+  "price": 68495,
+  "seats_available": 6
+}, {
+  "flight_id": 13,
+  "airline": "Aeroméxico",
+  "origin": "Mumbai",
+  "destination": "Bangalore",
+  "date": "2025-10-25",
+  "departure_time": "10:33 AM",
+  "arrival_time": "12:03 PM",
+  "price": 53288,
+  "seats_available": 10
+}, {
+  "flight_id": 14,
+  "airline": "Singapore Airlines",
+  "origin": "Mumbai",
+  "destination": "Chennai",
+  "date": "2026-11-19",
+  "departure_time": "4:26 PM",
+  "arrival_time": "5:02 PM",
+  "price": 9564,
+  "seats_available": 103
+}, {
+  "flight_id": 15,
+  "airline": "Qantas",
+  "origin": "Mumbai",
+  "destination": "Hyderabad",
+  "date": "2026-09-11",
+  "departure_time": "5:12 PM",
+  "arrival_time": "7:32 PM",
+  "price": 7764,
+  "seats_available": 170
+}, {
+  "flight_id": 16,
+  "airline": "Air India",
+  "origin": "Mumbai",
+  "destination": "Kolkata",
+  "date": "2025-12-29",
+  "departure_time": "4:49 AM",
+  "arrival_time": "7:12 AM",
+  "price": 42368,
+  "seats_available": 104
+}, {
+  "flight_id": 17,
+  "airline": "Ethiopian Airlines",
+  "origin": "Mumbai",
+  "destination": "Ahmedabad",
+  "date": "2025-11-26",
+  "departure_time": "2:43 AM",
+  "arrival_time": "3:32 AM",
+  "price": 95837,
+  "seats_available": 100
+}, {
+  "flight_id": 18,
+  "airline": "Qantas",
+  "origin": "Mumbai",
+  "destination": "Goa",
+  "date": "2026-09-30",
+  "departure_time": "1:35 PM",
+  "arrival_time": "2:41 PM",
+  "price": 73022,
+  "seats_available": 173
+}, {
+  "flight_id": 19,
+  "airline": "Qantas",
+  "origin": "Mumbai",
+  "destination": "Pune",
+  "date": "2026-11-06",
+  "departure_time": "5:54 PM",
+  "arrival_time": "7:25 PM",
+  "price": 78216,
+  "seats_available": 178
+}, {
+  "flight_id": 20,
+  "airline": "Thai Airways",
+  "origin": "Mumbai",
+  "destination": "Kochi",
+  "date": "2026-12-30",
+  "departure_time": "8:07 AM",
+  "arrival_time": "9:00 AM",
+  "price": 58108,
+  "seats_available": 14
+}, {
+  "flight_id": 21,
+  "airline": "Air Canada",
+  "origin": "Bangalore",
+  "destination": "Delhi",
+  "date": "2025-12-08",
+  "departure_time": "6:48 PM",
+  "arrival_time": "8:08 PM",
+  "price": 90155,
+  "seats_available": 10
+}, {
+  "flight_id": 22,
+  "airline": "Thai Airways",
+  "origin": "Bangalore",
+  "destination": "Mumbai",
+  "date": "2026-11-06",
+  "departure_time": "6:39 AM",
+  "arrival_time": "9:17 AM",
+  "price": 87868,
+  "seats_available": 68
+}, {
+  "flight_id": 23,
+  "airline": "United Airlines",
+  "origin": "Bangalore",
+  "destination": "Bangalore",
+  "date": "2026-03-15",
+  "departure_time": "4:40 PM",
+  "arrival_time": "5:37 PM",
+  "price": 6244,
+  "seats_available": 147
+}, {
+  "flight_id": 24,
+  "airline": "SAS Scandinavian",
+  "origin": "Bangalore",
+  "destination": "Chennai",
+  "date": "2026-09-30",
+  "departure_time": "4:26 AM",
+  "arrival_time": "6:55 AM",
+  "price": 34563,
+  "seats_available": 25
+}, {
+  "flight_id": 25,
+  "airline": "Delta Air Lines",
+  "origin": "Bangalore",
+  "destination": "Hyderabad",
+  "date": "2026-05-01",
+  "departure_time": "11:50 PM",
+  "arrival_time": "2:19 AM",
+  "price": 41169,
+  "seats_available": 71
+}, {
+  "flight_id": 26,
+  "airline": "Air France",
+  "origin": "Bangalore",
+  "destination": "Kolkata",
+  "date": "2026-06-19",
+  "departure_time": "2:07 PM",
+  "arrival_time": "3:37 PM",
+  "price": 8639,
+  "seats_available": 125
+}, {
+  "flight_id": 27,
+  "airline": "United Airlines",
+  "origin": "Bangalore",
+  "destination": "Ahmedabad",
+  "date": "2026-10-03",
+  "departure_time": "9:37 PM",
+  "arrival_time": "11:11 PM",
+  "price": 52852,
+  "seats_available": 64
+}, {
+  "flight_id": 28,
+  "airline": "LATAM Airlines",
+  "origin": "Bangalore",
+  "destination": "Goa",
+  "date": "2026-03-13",
+  "departure_time": "2:55 PM",
+  "arrival_time": "5:11 PM",
+  "price": 92130,
+  "seats_available": 195
+}, {
+  "flight_id": 29,
+  "airline": "Singapore Airlines",
+  "origin": "Bangalore",
+  "destination": "Pune",
+  "date": "2026-10-19",
+  "departure_time": "5:00 PM",
+  "arrival_time": "6:37 PM",
+  "price": 55106,
+  "seats_available": 176
+}, {
+  "flight_id": 30,
+  "airline": "KLM Royal Dutch Airlines",
+  "origin": "Bangalore",
+  "destination": "Kochi",
+  "date": "2025-10-18",
+  "departure_time": "3:07 PM",
+  "arrival_time": "4:39 PM",
+  "price": 80372,
+  "seats_available": 200
+}, {
+  "flight_id": 31,
+  "airline": "Lufthansa",
+  "origin": "Chennai",
+  "destination": "Delhi",
+  "date": "2026-12-13",
+  "departure_time": "3:19 AM",
+  "arrival_time": "3:55 AM",
+  "price": 73486,
+  "seats_available": 0
+}, {
+  "flight_id": 32,
+  "airline": "Lufthansa",
+  "origin": "Chennai",
+  "destination": "Mumbai",
+  "date": "2026-06-13",
+  "departure_time": "5:10 PM",
+  "arrival_time": "5:55 PM",
+  "price": 90111,
+  "seats_available": 73
+}, {
+  "flight_id": 33,
+  "airline": "Aeroméxico",
+  "origin": "Chennai",
+  "destination": "Bangalore",
+  "date": "2026-08-10",
+  "departure_time": "5:38 AM",
+  "arrival_time": "6:48 AM",
+  "price": 46868,
+  "seats_available": 58
+}, {
+  "flight_id": 34,
+  "airline": "Aeroméxico",
+  "origin": "Chennai",
+  "destination": "Chennai",
+  "date": "2026-01-03",
+  "departure_time": "3:54 AM",
+  "arrival_time": "5:39 AM",
+  "price": 79637,
+  "seats_available": 8
+}, {
+  "flight_id": 35,
+  "airline": "All Nippon Airways",
+  "origin": "Chennai",
+  "destination": "Hyderabad",
+  "date": "2026-07-22",
+  "departure_time": "5:55 PM",
+  "arrival_time": "7:09 PM",
+  "price": 96604,
+  "seats_available": 2
+}, {
+  "flight_id": 36,
+  "airline": "Korean Air",
+  "origin": "Chennai",
+  "destination": "Kolkata",
+  "date": "2026-05-23",
+  "departure_time": "6:00 AM",
+  "arrival_time": "8:59 AM",
+  "price": 50133,
+  "seats_available": 98
+}, {
+  "flight_id": 37,
+  "airline": "Alitalia",
+  "origin": "Chennai",
+  "destination": "Ahmedabad",
+  "date": "2026-11-25",
+  "departure_time": "10:43 AM",
+  "arrival_time": "11:48 AM",
+  "price": 36201,
+  "seats_available": 105
+}, {
+  "flight_id": 38,
+  "airline": "Air India",
+  "origin": "Chennai",
+  "destination": "Goa",
+  "date": "2026-09-21",
+  "departure_time": "12:48 PM",
+  "arrival_time": "3:36 PM",
+  "price": 6352,
+  "seats_available": 23
+}, {
+  "flight_id": 39,
+  "airline": "Air India",
+  "origin": "Chennai",
+  "destination": "Pune",
+  "date": "2026-09-13",
+  "departure_time": "7:07 AM",
+  "arrival_time": "9:36 AM",
+  "price": 81890,
+  "seats_available": 176
+}, {
+  "flight_id": 40,
+  "airline": "Southwest Airlines",
+  "origin": "Chennai",
+  "destination": "Kochi",
+  "date": "2025-10-04",
+  "departure_time": "3:35 PM",
+  "arrival_time": "4:49 PM",
+  "price": 92349,
+  "seats_available": 102
+}, {
+  "flight_id": 41,
+  "airline": "Singapore Airlines",
+  "origin": "Hyderabad",
+  "destination": "Delhi",
+  "date": "2026-05-09",
+  "departure_time": "2:05 AM",
+  "arrival_time": "2:59 AM",
+  "price": 89239,
+  "seats_available": 128
+}, {
+  "flight_id": 42,
+  "airline": "Lufthansa",
+  "origin": "Hyderabad",
+  "destination": "Mumbai",
+  "date": "2026-12-25",
+  "departure_time": "3:45 AM",
+  "arrival_time": "6:42 AM",
+  "price": 60400,
+  "seats_available": 155
+}, {
+  "flight_id": 43,
+  "airline": "KLM Royal Dutch Airlines",
+  "origin": "Hyderabad",
+  "destination": "Bangalore",
+  "date": "2026-01-05",
+  "departure_time": "2:20 PM",
+  "arrival_time": "4:45 PM",
+  "price": 92778,
+  "seats_available": 136
+}, {
+  "flight_id": 44,
+  "airline": "Avianca",
+  "origin": "Hyderabad",
+  "destination": "Chennai",
+  "date": "2026-06-07",
+  "departure_time": "6:40 PM",
+  "arrival_time": "8:53 PM",
+  "price": 94280,
+  "seats_available": 25
+}, {
+  "flight_id": 45,
+  "airline": "Air India",
+  "origin": "Hyderabad",
+  "destination": "Hyderabad",
+  "date": "2026-09-23",
+  "departure_time": "2:09 AM",
+  "arrival_time": "2:53 AM",
+  "price": 35040,
+  "seats_available": 17
+}, {
+  "flight_id": 46,
+  "airline": "Cathay Pacific",
+  "origin": "Hyderabad",
+  "destination": "Kolkata",
+  "date": "2026-02-08",
+  "departure_time": "1:22 AM",
+  "arrival_time": "2:54 AM",
+  "price": 29414,
+  "seats_available": 144
+}, {
+  "flight_id": 47,
+  "airline": "Cathay Pacific",
+  "origin": "Hyderabad",
+  "destination": "Ahmedabad",
+  "date": "2026-05-24",
+  "departure_time": "6:04 AM",
+  "arrival_time": "7:55 AM",
+  "price": 86708,
+  "seats_available": 196
+}, {
+  "flight_id": 48,
+  "airline": "Emirates",
+  "origin": "Hyderabad",
+  "destination": "Goa",
+  "date": "2026-10-18",
+  "departure_time": "7:50 AM",
+  "arrival_time": "9:56 AM",
+  "price": 92746,
+  "seats_available": 133
+}, {
+  "flight_id": 49,
+  "airline": "Alitalia",
+  "origin": "Hyderabad",
+  "destination": "Pune",
+  "date": "2026-02-18",
+  "departure_time": "5:30 AM",
+  "arrival_time": "7:31 AM",
+  "price": 31065,
+  "seats_available": 184
+}, {
+  "flight_id": 50,
+  "airline": "Qatar Airways",
+  "origin": "Hyderabad",
+  "destination": "Kochi",
+  "date": "2026-11-01",
+  "departure_time": "3:54 AM",
+  "arrival_time": "5:52 AM",
+  "price": 88048,
+  "seats_available": 47
+}, {
+  "flight_id": 51,
+  "airline": "Iberia",
+  "origin": "Kolkata",
+  "destination": "Delhi",
+  "date": "2025-12-25",
+  "departure_time": "1:55 AM",
+  "arrival_time": "2:25 AM",
+  "price": 46426,
+  "seats_available": 25
+}, {
+  "flight_id": 52,
+  "airline": "Air India",
+  "origin": "Kolkata",
+  "destination": "Mumbai",
+  "date": "2026-10-07",
+  "departure_time": "4:50 PM",
+  "arrival_time": "6:24 PM",
+  "price": 49819,
+  "seats_available": 73
+}, {
+  "flight_id": 53,
+  "airline": "All Nippon Airways",
+  "origin": "Kolkata",
+  "destination": "Bangalore",
+  "date": "2026-09-04",
+  "departure_time": "7:55 PM",
+  "arrival_time": "10:55 PM",
+  "price": 23784,
+  "seats_available": 152
+}, {
+  "flight_id": 54,
+  "airline": "Air India",
+  "origin": "Kolkata",
+  "destination": "Chennai",
+  "date": "2026-05-15",
+  "departure_time": "8:59 AM",
+  "arrival_time": "10:27 AM",
+  "price": 40518,
+  "seats_available": 28
+}, {
+  "flight_id": 55,
+  "airline": "Air New Zealand",
+  "origin": "Kolkata",
+  "destination": "Hyderabad",
+  "date": "2026-06-09",
+  "departure_time": "3:52 AM",
+  "arrival_time": "5:03 AM",
+  "price": 88815,
+  "seats_available": 31
+}, {
+  "flight_id": 56,
+  "airline": "American Airlines",
+  "origin": "Kolkata",
+  "destination": "Kolkata",
+  "date": "2026-01-14",
+  "departure_time": "5:06 AM",
+  "arrival_time": "7:43 AM",
+  "price": 24434,
+  "seats_available": 59
+}, {
+  "flight_id": 57,
+  "airline": "SAS Scandinavian",
+  "origin": "Kolkata",
+  "destination": "Ahmedabad",
+  "date": "2025-10-22",
+  "departure_time": "10:24 PM",
+  "arrival_time": "11:20 PM",
+  "price": 88653,
+  "seats_available": 22
+}, {
+  "flight_id": 58,
+  "airline": "Aeroméxico",
+  "origin": "Kolkata",
+  "destination": "Goa",
+  "date": "2026-08-21",
+  "departure_time": "9:45 PM",
+  "arrival_time": "11:22 PM",
+  "price": 53519,
+  "seats_available": 111
+}, {
+  "flight_id": 59,
+  "airline": "LATAM Airlines",
+  "origin": "Kolkata",
+  "destination": "Pune",
+  "date": "2026-04-04",
+  "departure_time": "9:33 AM",
+  "arrival_time": "11:11 AM",
+  "price": 71247,
+  "seats_available": 118
+}, {
+  "flight_id": 60,
+  "airline": "Avianca",
+  "origin": "Kolkata",
+  "destination": "Kochi",
+  "date": "2026-04-21",
+  "departure_time": "6:19 AM",
+  "arrival_time": "7:47 AM",
+  "price": 87549,
+  "seats_available": 49
+}, {
+  "flight_id": 61,
+  "airline": "Emirates",
+  "origin": "Ahmedabad",
+  "destination": "Delhi",
+  "date": "2026-07-16",
+  "departure_time": "12:47 AM",
+  "arrival_time": "3:02 AM",
+  "price": 57661,
+  "seats_available": 175
+}, {
+  "flight_id": 62,
+  "airline": "Iberia",
+  "origin": "Ahmedabad",
+  "destination": "Mumbai",
+  "date": "2026-05-04",
+  "departure_time": "10:52 PM",
+  "arrival_time": "12:38 AM",
+  "price": 41603,
+  "seats_available": 55
+}, {
+  "flight_id": 63,
+  "airline": "British Airways",
+  "origin": "Ahmedabad",
+  "destination": "Bangalore",
+  "date": "2026-11-09",
+  "departure_time": "1:00 PM",
+  "arrival_time": "3:04 PM",
+  "price": 64329,
+  "seats_available": 184
+}, {
+  "flight_id": 64,
+  "airline": "Emirates",
+  "origin": "Ahmedabad",
+  "destination": "Chennai",
+  "date": "2026-03-29",
+  "departure_time": "6:14 AM",
+  "arrival_time": "9:12 AM",
+  "price": 45575,
+  "seats_available": 62
+}, {
+  "flight_id": 65,
+  "airline": "Cathay Pacific",
+  "origin": "Ahmedabad",
+  "destination": "Hyderabad",
+  "date": "2026-12-13",
+  "departure_time": "11:34 AM",
+  "arrival_time": "2:12 PM",
+  "price": 50297,
+  "seats_available": 190
+}, {
+  "flight_id": 66,
+  "airline": "Thai Airways",
+  "origin": "Ahmedabad",
+  "destination": "Kolkata",
+  "date": "2026-10-29",
+  "departure_time": "10:20 AM",
+  "arrival_time": "10:58 AM",
+  "price": 86287,
+  "seats_available": 148
+}, {
+  "flight_id": 67,
+  "airline": "SAS Scandinavian",
+  "origin": "Ahmedabad",
+  "destination": "Ahmedabad",
+  "date": "2025-11-19",
+  "departure_time": "2:43 AM",
+  "arrival_time": "4:16 AM",
+  "price": 66059,
+  "seats_available": 155
+}, {
+  "flight_id": 68,
+  "airline": "Air New Zealand",
+  "origin": "Ahmedabad",
+  "destination": "Goa",
+  "date": "2026-01-23",
+  "departure_time": "11:42 PM",
+  "arrival_time": "12:57 AM",
+  "price": 94557,
+  "seats_available": 56
+}, {
+  "flight_id": 69,
+  "airline": "Singapore Airlines",
+  "origin": "Ahmedabad",
+  "destination": "Pune",
+  "date": "2026-11-11",
+  "departure_time": "11:39 AM",
+  "arrival_time": "12:29 PM",
+  "price": 34291,
+  "seats_available": 169
+}, {
+  "flight_id": 70,
+  "airline": "KLM Royal Dutch Airlines",
+  "origin": "Ahmedabad",
+  "destination": "Kochi",
+  "date": "2026-05-30",
+  "departure_time": "11:17 AM",
+  "arrival_time": "11:49 AM",
+  "price": 19574,
+  "seats_available": 13
+}, {
+  "flight_id": 71,
+  "airline": "Air Canada",
+  "origin": "Goa",
+  "destination": "Delhi",
+  "date": "2025-12-07",
+  "departure_time": "5:54 PM",
+  "arrival_time": "7:03 PM",
+  "price": 51548,
+  "seats_available": 109
+}, {
+  "flight_id": 72,
+  "airline": "Alitalia",
+  "origin": "Goa",
+  "destination": "Mumbai",
+  "date": "2026-04-26",
+  "departure_time": "10:35 AM",
+  "arrival_time": "1:06 PM",
+  "price": 93104,
+  "seats_available": 34
+}, {
+  "flight_id": 73,
+  "airline": "Korean Air",
+  "origin": "Goa",
+  "destination": "Bangalore",
+  "date": "2026-06-28",
+  "departure_time": "7:00 AM",
+  "arrival_time": "7:46 AM",
+  "price": 7938,
+  "seats_available": 47
+}, {
+  "flight_id": 74,
+  "airline": "LATAM Airlines",
+  "origin": "Goa",
+  "destination": "Chennai",
+  "date": "2026-02-05",
+  "departure_time": "11:20 PM",
+  "arrival_time": "1:09 AM",
+  "price": 41042,
+  "seats_available": 40
+}, {
+  "flight_id": 75,
+  "airline": "LATAM Airlines",
+  "origin": "Goa",
+  "destination": "Hyderabad",
+  "date": "2026-12-22",
+  "departure_time": "1:42 PM",
+  "arrival_time": "3:54 PM",
+  "price": 22132,
+  "seats_available": 114
+}, {
+  "flight_id": 76,
+  "airline": "Qatar Airways",
+  "origin": "Goa",
+  "destination": "Kolkata",
+  "date": "2026-12-27",
+  "departure_time": "5:01 AM",
+  "arrival_time": "7:26 AM",
+  "price": 91206,
+  "seats_available": 108
+}, {
+  "flight_id": 77,
+  "airline": "Southwest Airlines",
+  "origin": "Goa",
+  "destination": "Ahmedabad",
+  "date": "2026-04-25",
+  "departure_time": "11:32 AM",
+  "arrival_time": "1:19 PM",
+  "price": 54750,
+  "seats_available": 167
+}, {
+  "flight_id": 78,
+  "airline": "Thai Airways",
+  "origin": "Goa",
+  "destination": "Goa",
+  "date": "2026-04-09",
+  "departure_time": "8:09 AM",
+  "arrival_time": "8:51 AM",
+  "price": 44471,
+  "seats_available": 83
+}, {
+  "flight_id": 79,
+  "airline": "Lufthansa",
+  "origin": "Goa",
+  "destination": "Pune",
+  "date": "2026-03-12",
+  "departure_time": "9:51 AM",
+  "arrival_time": "10:59 AM",
+  "price": 71507,
+  "seats_available": 143
+}, {
+  "flight_id": 80,
+  "airline": "Alitalia",
+  "origin": "Goa",
+  "destination": "Kochi",
+  "date": "2026-03-13",
+  "departure_time": "5:24 PM",
+  "arrival_time": "8:01 PM",
+  "price": 91894,
+  "seats_available": 77
+}, {
+  "flight_id": 81,
+  "airline": "Lufthansa",
+  "origin": "Pune",
+  "destination": "Delhi",
+  "date": "2026-02-14",
+  "departure_time": "3:48 AM",
+  "arrival_time": "4:24 AM",
+  "price": 33112,
+  "seats_available": 184
+}, {
+  "flight_id": 82,
+  "airline": "Singapore Airlines",
+  "origin": "Pune",
+  "destination": "Mumbai",
+  "date": "2026-07-30",
+  "departure_time": "4:55 AM",
+  "arrival_time": "7:24 AM",
+  "price": 85811,
+  "seats_available": 156
+}, {
+  "flight_id": 83,
+  "airline": "South African Airways",
+  "origin": "Pune",
+  "destination": "Bangalore",
+  "date": "2026-02-27",
+  "departure_time": "6:32 AM",
+  "arrival_time": "8:44 AM",
+  "price": 53664,
+  "seats_available": 192
+}, {
+  "flight_id": 84,
+  "airline": "Air New Zealand",
+  "origin": "Pune",
+  "destination": "Chennai",
+  "date": "2026-09-03",
+  "departure_time": "3:24 PM",
+  "arrival_time": "5:40 PM",
+  "price": 52229,
+  "seats_available": 9
+}, {
+  "flight_id": 85,
+  "airline": "Avianca",
+  "origin": "Pune",
+  "destination": "Hyderabad",
+  "date": "2025-12-17",
+  "departure_time": "12:39 AM",
+  "arrival_time": "3:18 AM",
+  "price": 54015,
+  "seats_available": 23
+}, {
+  "flight_id": 86,
+  "airline": "Avianca",
+  "origin": "Pune",
+  "destination": "Kolkata",
+  "date": "2025-11-10",
+  "departure_time": "6:19 AM",
+  "arrival_time": "8:05 AM",
+  "price": 12147,
+  "seats_available": 45
+}, {
+  "flight_id": 87,
+  "airline": "Singapore Airlines",
+  "origin": "Pune",
+  "destination": "Ahmedabad",
+  "date": "2025-10-25",
+  "departure_time": "10:30 PM",
+  "arrival_time": "11:28 PM",
+  "price": 26133,
+  "seats_available": 13
+}, {
+  "flight_id": 88,
+  "airline": "Korean Air",
+  "origin": "Pune",
+  "destination": "Goa",
+  "date": "2026-05-16",
+  "departure_time": "11:00 AM",
+  "arrival_time": "11:40 AM",
+  "price": 39342,
+  "seats_available": 35
+}, {
+  "flight_id": 89,
+  "airline": "British Airways",
+  "origin": "Pune",
+  "destination": "Pune",
+  "date": "2025-10-12",
+  "departure_time": "10:51 PM",
+  "arrival_time": "11:48 PM",
+  "price": 26496,
+  "seats_available": 176
+}, {
+  "flight_id": 90,
+  "airline": "Avianca",
+  "origin": "Pune",
+  "destination": "Kochi",
+  "date": "2026-06-29",
+  "departure_time": "2:55 AM",
+  "arrival_time": "5:43 AM",
+  "price": 45341,
+  "seats_available": 75
+}, {
+  "flight_id": 91,
+  "airline": "Ethiopian Airlines",
+  "origin": "Kochi",
+  "destination": "Delhi",
+  "date": "2025-10-27",
+  "departure_time": "7:53 PM",
+  "arrival_time": "8:33 PM",
+  "price": 61286,
+  "seats_available": 40
+}, {
+  "flight_id": 92,
+  "airline": "Aeroméxico",
+  "origin": "Kochi",
+  "destination": "Mumbai",
+  "date": "2025-10-04",
+  "departure_time": "2:59 PM",
+  "arrival_time": "5:25 PM",
+  "price": 70559,
+  "seats_available": 49
+}, {
+  "flight_id": 93,
+  "airline": "Thai Airways",
+  "origin": "Kochi",
+  "destination": "Bangalore",
+  "date": "2026-08-25",
+  "departure_time": "5:20 PM",
+  "arrival_time": "6:49 PM",
+  "price": 89886,
+  "seats_available": 177
+}, {
+  "flight_id": 94,
+  "airline": "SAS Scandinavian",
+  "origin": "Kochi",
+  "destination": "Chennai",
+  "date": "2025-11-17",
+  "departure_time": "5:35 PM",
+  "arrival_time": "6:24 PM",
+  "price": 68488,
+  "seats_available": 68
+}, {
+  "flight_id": 95,
+  "airline": "Southwest Airlines",
+  "origin": "Kochi",
+  "destination": "Hyderabad",
+  "date": "2025-12-21",
+  "departure_time": "4:19 AM",
+  "arrival_time": "5:27 AM",
+  "price": 31037,
+  "seats_available": 180
+}, {
+  "flight_id": 96,
+  "airline": "Qatar Airways",
+  "origin": "Kochi",
+  "destination": "Kolkata",
+  "date": "2026-10-13",
+  "departure_time": "8:19 AM",
+  "arrival_time": "9:25 AM",
+  "price": 57484,
+  "seats_available": 166
+}, {
+  "flight_id": 97,
+  "airline": "British Airways",
+  "origin": "Kochi",
+  "destination": "Ahmedabad",
+  "date": "2026-04-07",
+  "departure_time": "8:30 PM",
+  "arrival_time": "11:26 PM",
+  "price": 86771,
+  "seats_available": 20
+}, {
+  "flight_id": 98,
+  "airline": "All Nippon Airways",
+  "origin": "Kochi",
+  "destination": "Goa",
+  "date": "2026-07-15",
+  "departure_time": "11:00 PM",
+  "arrival_time": "12:44 AM",
+  "price": 16839,
+  "seats_available": 17
+}, {
+  "flight_id": 99,
+  "airline": "All Nippon Airways",
+  "origin": "Kochi",
+  "destination": "Pune",
+  "date": "2026-12-09",
+  "departure_time": "3:32 AM",
+  "arrival_time": "4:37 AM",
+  "price": 61554,
+  "seats_available": 54
+}, {
+  "flight_id": 100,
+  "airline": "LATAM Airlines",
+  "origin": "Kochi",
+  "destination": "Kochi",
+  "date": "2026-03-16",
+  "departure_time": "6:58 PM",
+  "arrival_time": "7:45 PM",
+  "price": 98103,
+  "seats_available": 138
+}]

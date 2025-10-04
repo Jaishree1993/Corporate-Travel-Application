@@ -1,6 +1,8 @@
 package com.example.corporateapp.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,11 +20,17 @@ import lombok.NoArgsConstructor;
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String fromAirport;
-    private String toAirport;
-    private String airline;
-    private LocalDate departureDate;
-    private double price;
+    public Long flight_id;
+    public String airline;
+    public String origin;
+    public String destination;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+private LocalDate date;
+
+
+    public String departure_time;
+    public String arrival_time;
+    public double price;
+    public int seats_available;
     
 }

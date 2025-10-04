@@ -1,4 +1,90 @@
-document.getElementById('searchForm').addEventListener('submit', async (e) => {
+document.getElementById("searchForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const from = document.getElementById("from").value.trim();
+  const to = document.getElementById("to").value.trim();
+ const rawDate = document.getElementById("date").value; // already yyyy-MM-dd
+const formattedDate = rawDate;
+
+
+
+
+
+  const resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "<p>Loading flights...</p>";
+
+
+  fetch(`/api/search/flights?from=${from}&to=${to}&date=${formattedDate}`)
+    .then(response => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
+    })
+    .then(data => {
+      resultsDiv.innerHTML = "";
+
+      if (!data || data.length === 0) {
+        resultsDiv.innerHTML = "<p>No flights found.</p>";
+        return;
+      }
+
+      const table = document.createElement("table");
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>Airline</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Price</th>
+            <th>Seats</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data.map(flight => `
+            <tr>
+              <td>${flight.airline}</td>
+              <td>${flight.origin}</td>
+              <td>${flight.destination}</td>
+              <td>${flight.date}</td>
+              <td>${flight.departure_time}</td>
+              <td>${flight.arrival_time}</td>
+              <td>₹${flight.price}</td>
+              <td>${flight.seats_available}</td>
+              <td><button onclick="book(${flight.flight_id}, ${flight.price})">Book</button></td>
+            </tr>
+          `).join("")}
+        </tbody>
+      `;
+      resultsDiv.appendChild(table);
+    })
+    .catch(error => {
+      console.error("Error fetching flights:", error);
+      resultsDiv.innerHTML = "<p>Error loading flights.</p>";
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*document.getElementById('searchForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const from = document.getElementById('from').value.trim();
   const to = document.getElementById('to').value.trim();
@@ -37,4 +123,4 @@ async function book(flightId, price) {
   });
   const booking = await res.json();
   alert('Booked! Booking ID: ' + booking.id);
-}
+}*/

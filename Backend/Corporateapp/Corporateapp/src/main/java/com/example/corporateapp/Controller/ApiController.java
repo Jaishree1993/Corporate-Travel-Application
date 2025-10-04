@@ -21,12 +21,22 @@ public class ApiController {
     private final TravelService travelService;
     public ApiController(TravelService travelService) { this.travelService = travelService; }
 
-    @GetMapping("/search/flights")
-    public List<Flight> searchFlights(@RequestParam String from,
-                                      @RequestParam String to,
-                                      @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        return travelService.searchFlights(from, to, date);
-    }
+  
+@GetMapping("/search/flights")
+public List<Flight> searchFlights(
+    @RequestParam String from,
+    @RequestParam String to,
+    @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+    return travelService.searchFlights(from, to, date);
+}
+
+    /*@GetMapping("/search/flights")
+public List<Flight> searchFlights(@RequestParam String from,
+                                  @RequestParam String to,
+                                  @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
+    return travelService.searchFlights(from, to, date);
+}*/
+
 
     @PostMapping("/book")
     public Booking book(@RequestBody Booking booking) {
@@ -37,5 +47,10 @@ public class ApiController {
     public List<Booking> getBookings() {
         return travelService.getAllBookings();
     }
-    
+    @GetMapping("/all")
+public List<Flight> allFlights() {
+    return travelService.getAllFlights();
+}
+
+
 }
