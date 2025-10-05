@@ -13,11 +13,14 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-.requestMatchers(
+    .requestMatchers(
     "/", "/loginpage.html", "/booking-form.html", "/css/**", "/images/**", "/js/**",
-    "/login", "/register", "/api/search/**"
-).permitAll()                .anyRequest().authenticated()
-            )
+    "/login", "/register", "/api/search/**", "/api/book","/bookings" 
+).permitAll()
+
+    .anyRequest().authenticated()
+)
+
            /* .formLogin(form -> form
     .loginPage("/loginpage.html")
     .defaultSuccessUrl("/", true) // ✅ Redirect to controller that serves index.html
