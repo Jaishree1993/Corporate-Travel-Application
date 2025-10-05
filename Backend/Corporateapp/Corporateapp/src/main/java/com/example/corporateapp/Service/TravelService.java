@@ -53,7 +53,6 @@ public void seed() {
 }
 
 
-
     /*public void seed() {
         if (flightRepo.count() == 0) {
             flightRepo.save(new Flight(null, "DEL","BOM","Indigo", LocalDate.now().plusDays(7), 5000));

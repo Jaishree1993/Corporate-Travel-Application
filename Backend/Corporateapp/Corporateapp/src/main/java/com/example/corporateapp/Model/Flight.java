@@ -16,21 +16,25 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Flight {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long flight_id;
-    public String airline;
-    public String origin;
-    public String destination;
-  @JsonFormat(pattern = "yyyy-MM-dd")
-private LocalDate date;
+    private Long flight_id;
 
+    private String airline;
+    private String origin;
+    private String destination;
 
-    public String departure_time;
-    public String arrival_time;
-    public double price;
-    public int seats_available;
-    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "h:mm a")
+    private LocalTime departure_time;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "h:mm a")
+    private LocalTime arrival_time;
+
+    private double price;
+    private int seats_available;
 }
