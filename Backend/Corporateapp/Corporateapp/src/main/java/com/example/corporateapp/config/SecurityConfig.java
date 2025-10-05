@@ -13,11 +13,13 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/css/**", "/js/**", "/images/**", "/login.html", "/register.html", "/login", "/register").permitAll()
+                .requestMatchers("/loginpage.html", "/css/**", "/images/**", "/js/**", "/login", "/register").permitAll()
+
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login.html")
+                .loginPage("/loginpage.html")
+                .defaultSuccessUrl("/flights", true) // optional: redirect after login
                 .permitAll()
             )
             .logout(logout -> logout.permitAll());
