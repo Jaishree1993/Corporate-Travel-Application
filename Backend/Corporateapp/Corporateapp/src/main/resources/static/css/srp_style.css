@@ -3,7 +3,7 @@
 :root{
   --blue:#0b5fff;
   --muted:#6b7280;
-  --bg:#f4f7fb;
+  --bg:#eef6ff;
   --card:#fff;
   --border:#e6ecf2;
   --accent:#007bff;
@@ -18,10 +18,9 @@ body{
   background:var(--bg);
   color:#0f172a;
   line-height:1.4;
-  -webkit-font-smoothing:antialiased;
 }
 
-/* Top header (matches header.page-top) */
+/* Header */
 header.page-top{
   display:flex;
   align-items:center;
@@ -34,110 +33,83 @@ header.page-top{
   z-index:40;
 }
 .brand{display:flex;gap:12px;align-items:center}
-.brand img{width:40px;height:40px;border-radius:6px;object-fit:cover}
+.brand img{width:44px;height:44px;border-radius:6px;object-fit:cover}
 .brand-title{font-weight:700;font-size:16px;display:block}
 .brand-sub{font-size:12px;color:var(--muted);display:block}
 
-/* Steps (matches .steps .step) */
+/* Steps */
 .steps{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px}
 .step{padding:6px 10px;border-radius:6px;background:#f8fafc;color:#374151;font-weight:600}
 
-/* Top action button (matches .btn-top) */
-.btn-top{
-  background:transparent;
-  color:var(--blue);
-  border:1px solid rgba(11,95,255,0.12);
-  padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:600;
-}
-
-/* Page container */
-.wrap{max-width:1180px;margin:20px auto;padding:0 16px}
-
-/* Search panel (matches .search-panel / .search-form) */
-.search-panel{
-  background:var(--card);border:1px solid var(--border);padding:16px;border-radius:8px;
-  display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;
-}
-.search-form{display:flex;gap:12px;align-items:end;flex-wrap:wrap;width:100%}
-.field{display:flex;flex-direction:column;min-width:160px}
-label.small{font-size:12px;color:var(--muted);margin-bottom:6px}
-input[type="text"],input[type="date"],input[type="search"]{
-  padding:10px 12px;border:1px solid #d1dbe8;border-radius:6px;background:#fff;font-size:14px;
-  outline:none;
-}
-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,95,255,0.06)}
-.actions{margin-left:auto;display:flex;gap:8px;align-items:center}
-.btn{padding:8px 12px;border-radius:6px;border:1px solid transparent;cursor:pointer;font-weight:600}
+/* Buttons */
+.btn-top, .btn{background:transparent;color:var(--blue);border:1px solid rgba(11,95,255,0.12);padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:600}
 .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
 .btn.ghost{background:transparent;color:var(--blue);border:1px solid rgba(11,95,255,0.12)}
 
-/* Results grid (filters + results) */
-.results-grid{display:grid;grid-template-columns:260px 1fr;gap:16px;margin-top:16px;align-items:start}
-.filters{
-  background:var(--card);border:1px solid var(--border);padding:14px;border-radius:8px;
-  position:sticky;top:88px;height:max-content;
-}
-.filters h3{margin-bottom:8px;font-size:15px}
+/* Container */
+.wrap{max-width:1180px;margin:20px auto;padding:0 16px}
+
+/* Search panel */
+.search-panel{background:var(--card);border:1px solid var(--border);padding:16px;border-radius:8px;display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.search-form{display:flex;gap:12px;align-items:end;flex-wrap:wrap;width:100%}
+.field{display:flex;flex-direction:column;min-width:160px}
+label.small{font-size:12px;color:var(--muted);margin-bottom:6px}
+input[type="text"],input[type="date"],input[type="search"]{padding:10px 12px;border:1px solid #d1dbe8;border-radius:6px;background:#fff;font-size:14px;outline:none}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,95,255,0.06)}
+.actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+
+/* Summary */
+.search-summary{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;background:#fafcff;border:1px dashed rgba(11,95,255,0.06);margin-top:10px}
+.summary-left{display:flex;align-items:center;gap:10px;font-weight:600;color:#0f172a}
+
+/* Results layout */
+.results-grid{display:grid;grid-template-columns:260px 1fr;gap:20px;margin-top:16px;align-items:start}
+.filters{background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(11,95,255,0.06);padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(11,95,255,0.03);position:sticky;top:100px;height:max-content}
+.filters h3{margin-bottom:12px;font-size:16px;color:#0f172a}
 .filter-row{margin-bottom:12px}
 .chk{display:block;margin-bottom:6px;font-size:14px;color:#374151}
 .chk input{margin-right:8px}
 
-/* Results box and topbar */
+/* Slider */
+.slider{width:100%;height:8px;border-radius:5px;background:#d3d3d3;outline:none}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--blue);box-shadow:0 0 6px rgba(0,0,0,0.12)}
+
+/* Results box */
 .results-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px}
-.results-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid #eef2f7;margin-bottom:12px}
+.results-top{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#f7fbff,#f2f7ff);border:1px solid rgba(11,95,255,0.04);margin-bottom:12px}
 .result-count{color:#374151;font-weight:600}
 .sort-select select{padding:6px 8px;border-radius:6px;border:1px solid #d1dbe8;background:#fff}
 
 /* Results container used by your JS */
-#results{
-  min-height:220px;
-  display:flex;flex-direction:column;gap:12px;padding:6px;
-}
+#results{min-height:220px;display:flex;flex-direction:column;gap:12px;padding:6px}
 
-/* Table-friendly styles so your existing table output looks consistent */
-#results table{width:100%;border-collapse:collapse;background:transparent}
-#results th,#results td{ text-align:left;padding:10px 12px;border-bottom:1px solid #eef2f7;vertical-align:middle}
-#results thead th{background:var(--card);font-weight:700;color:#0f172a;border-bottom:2px solid var(--border)}
-#results tr:hover td{background:#fbfdff}
+/* Flight card refined */
+.flight-card{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#fcfeff);border:1px solid rgba(15,23,42,0.04);box-shadow:0 6px 20px rgba(11,95,255,0.04)}
+.flight-card .left{display:flex;gap:14px;align-items:center;min-width:0}
+.logo{width:56px;height:56px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#eef6ff,#e6f0ff);color:var(--blue);font-weight:800;font-size:16px;border:1px solid rgba(11,95,255,0.08)}
+.meta{min-width:260px;overflow:hidden}
+.route{font-weight:700;font-size:15px;color:#0f172a;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.time{margin-top:6px;color:var(--muted);font-size:13px;display:flex;gap:8px;align-items:center}
+.details{margin-top:8px;font-size:13px;color:#556;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;background:rgba(11,95,255,0.08);color:var(--blue);border:1px solid rgba(11,95,255,0.12)}
+.miles{color:#556}
 
-/* Card style for flight items (matches .flight-card in your code) */
-.flight-card{
-  display:flex;align-items:center;gap:12px;justify-content:space-between;
-  border:1px solid var(--border);padding:12px;border-radius:10px;background:var(--card);
-  transition:box-shadow .12s ease;
-}
-.flight-card:hover{box-shadow:0 6px 20px rgba(11,95,255,0.06)}
-.flight-card .left{display:flex;gap:12px;align-items:center}
-.logo{width:44px;height:44px;border-radius:8px;background:#eef2ff;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--blue)}
-.meta{min-width:220px}
-.meta .time{font-weight:700;font-size:15px}
-.meta .sub{color:var(--muted);font-size:13px;margin-top:6px}
-.price{text-align:right;min-width:140px}
-.price .amt{font-weight:800;font-size:18px;color:var(--blue)}
-.price .select{margin-top:8px}
+/* Price column */
+.price{text-align:right;min-width:160px;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.amt{font-size:20px;font-weight:900;color:var(--blue)}
+.btn-select-flight{background:#28a745;color:#fff;border:none;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700;box-shadow:0 6px 18px rgba(11,95,255,0.12)}
+.btn-select-flight:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(11,95,255,0.14)}
 
-/* Buttons inside results */
-.btn-select-flight{background:#28a745;color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
-.btn-select-flight:hover{background:#218838}
+/* Table compatibility (if backend still outputs table) */
+#results table{width:100%;border-collapse:collapse}
+#results th,#results td{padding:10px 12px;border-bottom:1px solid #eef2f7;text-align:left}
 
-/* Footer */
+/* Footer and helpers */
 footer.page-foot{max-width:1180px;margin:18px auto;padding:12px 16px;color:var(--muted);display:flex;justify-content:space-between;font-size:13px}
-
-/* Small helpers */
 .empty-placeholder{text-align:center;margin:36px auto;color:var(--muted)}
 .muted{color:var(--muted);font-size:13px}
 
 /* Responsive */
-@media (max-width:992px){
-  .results-grid{grid-template-columns:1fr}
-  .filters{position:relative;top:0;order:2}
-  .actions{width:100%;justify-content:flex-start;margin-left:0}
-  header.page-top{flex-wrap:wrap;gap:10px}
-  .btn-top{display:inline-block}
-}
+@media (max-width:992px){.results-grid{grid-template-columns:1fr}.filters{position:relative;top:0;order:2}.actions{width:100%;justify-content:flex-start;margin-left:0}}
+@media (max-width:720px){.logo{width:48px;height:48px;font-size:14px}.meta{min-width:160px}.price{min-width:120px;align-items:flex-end;margin-top:10px}.flight-card{flex-direction:column;align-items:flex-start;gap:10px}.price{width:100%;align-items:flex-start;border-top:1px dashed #eef2f7;padding-top:12px}}
 
-@media (max-width:768px){
-  .steps{width:100%;justify-content:center;margin-top:6px}
-  .flight-card{flex-direction:column;align-items:flex-start;text-align:left}
-  .price{width:100%;align-items:flex-start;margin-top:12px;border-top:1px dashed #eee;padding-top:12px}
-}

@@ -4,82 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Corporate Travel — Flight Search</title>
+
+  <!-- external stylesheet (ensure file exists at /css/srp_style.css) -->
   <link rel="stylesheet" href="/css/srp_style.css">
 
-  <!-- Embedded styling to avoid missing CSS deployment -->
+  <!-- small fallback embedded styles (optional) -->
   <style>
-    /* Core reset and typography */
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; }
     body { background: #f4f7fb; color: #0f172a; line-height: 1.4; }
-
-    /* Top navigation / header */
-    header.page-top {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 12px 18px; background: #ffffff; border-bottom: 1px solid #e6ecf2;
-      position: sticky; top: 0; z-index: 40;
-    }
-    .brand { display:flex; gap:12px; align-items:center; }
-    .brand img { width:40px; height:40px; border-radius:6px; object-fit:cover; }
-    .brand-title { font-weight:700; font-size:16px; display:block; }
-    .steps { display:flex; gap:8px; align-items:center; color:#6b7280; font-size:13px; }
-    .step { padding:6px 10px; border-radius:6px; background:#f8fafc; color:#374151; font-weight:600; }
-    .btn-top { background: transparent; color:#0b5fff; border:1px solid #cfe0ff; padding:8px 12px; border-radius:6px; cursor:pointer; }
-
-    /* Page container layout */
-    .wrap { max-width:1180px; margin:20px auto; padding:0 16px; }
-
-    /* Search panel */
-    .search-panel { background:#fff; border:1px solid #e6ecf2; padding:16px; border-radius:8px; display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap; }
-    .field { display:flex; flex-direction:column; min-width:160px; }
-    label.small { font-size:12px; color:#6b7280; margin-bottom:6px; }
-    input[type="text"], input[type="date"] { padding:10px 12px; border:1px solid #d1dbe8; border-radius:6px; background:#fff; font-size:14px; }
-    .actions { margin-left:auto; display:flex; gap:8px; align-items:center; }
-    .btn { padding:8px 12px; border-radius:6px; border:1px solid transparent; cursor:pointer; font-weight:600; }
-    .btn.primary { background:#0b5fff; color:#fff; border-color:#0b5fff; }
-    .btn.ghost { background:transparent; color:#0b5fff; border:1px solid #cfe0ff; }
-
-    /* Results layout: filters + results */
-    .results-grid { display:grid; grid-template-columns: 260px 1fr; gap:16px; margin-top:16px; align-items:start; }
-    .filters { background:#fff; border:1px solid #e6ecf2; padding:14px; border-radius:8px; position:sticky; top:88px; height:max-content; }
-    .filters h3 { margin-bottom:8px; font-size:15px; }
-    .filter-row { margin-bottom:10px; }
-    .chk { display:block; margin-bottom:6px; font-size:14px; color:#374151; }
-    .chk input { margin-right:8px; }
-
-    .results-box { background:#fff; border:1px solid #e6ecf2; border-radius:8px; padding:12px; }
-    .results-top { display:flex; justify-content:space-between; align-items:center; padding-bottom:8px; border-bottom:1px solid #eef2f7; margin-bottom:12px; }
-    .result-count { color:#374151; font-weight:600; }
-    .sort-select select { padding:6px 8px; border-radius:6px; border:1px solid #d1dbe8; }
-
-    /* Results list area where your existing JS renders table/cards */
-    #results { min-height:220px; display:flex; flex-direction:column; gap:12px; padding:6px; }
-
-    /* Table-friendly styles so existing table output looks good */
-    #results table { width:100%; border-collapse:collapse; background:transparent; }
-    #results th, #results td { text-align:left; padding:10px 12px; border-bottom:1px solid #eef2f7; }
-    #results thead th { background:#ffffff; font-weight:700; color:#0f172a; border-bottom:2px solid #e6ecf2; }
-    #results tr:hover td { background:#fbfdff; }
-
-    /* Card styles if your JS renders cards instead */
-    .flight-card { display:flex; align-items:center; gap:12px; justify-content:space-between; border:1px solid #e6ecf2; padding:12px; border-radius:10px; background:#fff; }
-    .flight-card .left { display:flex; gap:12px; align-items:center; }
-    .logo { width:44px; height:44px; border-radius:8px; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-weight:700; color:#0b5fff; }
-    .meta { min-width:220px; }
-    .meta .time { font-weight:700; font-size:15px; }
-    .meta .sub { color:#6b7280; font-size:13px; margin-top:6px; }
-    .price { text-align:right; min-width:140px; }
-    .price .amt { font-weight:800; font-size:18px; color:#0b5fff; }
-    .price .select { margin-top:8px; }
-
-    /* Footer */
-    footer.page-foot { max-width:1180px; margin:18px auto; padding:12px 16px; color:#6b7280; display:flex; justify-content:space-between; font-size:13px; }
-
-    /* Responsive */
-    @media (max-width:960px) {
-      .results-grid { grid-template-columns: 1fr; }
-      .filters { position:relative; top:0; }
-      .actions { width:100%; justify-content:flex-start; margin-left:0; }
-    }
   </style>
 </head>
 <body>
@@ -99,7 +31,7 @@
     </nav>
 
     <div>
-      <button class="btn-top btn-ghost btn-top" id="modifySearchTop">Modify Search</button>
+      <button class="btn-top btn-ghost" id="modifySearchTop">Modify Search</button>
     </div>
   </header>
 
@@ -128,18 +60,19 @@
         </div>
       </form>
 
-      <!-- visual summary that can be populated by your JS if desired -->
-      <div id="searchSummary" style="display:none; margin-top:12px; padding:10px; border-radius:6px; background:#fafcff; border:1px dashed #dfe9ff;">
-        <strong>Search</strong> <span id="summaryText">—</span>
+      <!-- visual summary that can be populated by your JS -->
+      <div id="searchSummary" class="search-summary" style="display:none; margin-top:12px; padding:10px; border-radius:6px; background:#fafcff; border:1px dashed #dfe9ff;">
+        <div class="summary-left"><i class="fas fa-plane-departure"></i> <span id="summaryText"></span></div>
+        <div><button class="btn ghost" id="compactModify">Modify Search</button></div>
       </div>
     </section>
 
     <div class="results-grid">
-      <aside class="filters">
+      <aside class="filters" aria-label="Filters">
         <h3>Filters</h3>
         <div class="filter-row">
           <div class="label small"><strong>Price range</strong></div>
-          <input id="priceRange" type="range" min="0" max="1000" value="500" />
+          <input id="priceRange" class="slider" type="range" min="0" max="1000" value="500" />
           <div class="small">Up to <strong>₹<span id="priceValue">500</span></strong></div>
         </div>
 
@@ -173,8 +106,8 @@
         <!-- This is the exact container your app.js writes into -->
         <div id="results">
           
-          <!-- Default placeholder -->
-          <div style="padding:28px; text-align:center; color:#6b7280;">
+          <!-- Default placeholder (removed when search returns results) -->
+          <div class="empty-placeholder" style="padding:28px; text-align:center; color:#6b7280;">
             <div style="font-weight:700; margin-bottom:6px;">No results yet</div>
             <div class="muted">Use the search form above to find flights</div>
           </div>
@@ -185,36 +118,17 @@
 
   <footer class="page-foot">
     <div>© Corporate Travel</div>
-    <div style="color:#6b7280">Internal demo</div>
+    <div class="muted">Internal demo</div>
   </footer>
 
   <!-- Keep external app.js intact so existing fetch and rendering logic continues to work -->
   <script src="/js/app.js"></script>
 
   <script>
-    // UI helpers that do not interfere with backend logic
+    // Keep UI helpers; these do not interfere with your backend logic
     const priceRange = document.getElementById('priceRange');
     const priceValue = document.getElementById('priceValue');
-    if (priceRange && priceValue) priceRange.oninput = function() { priceValue.textContent = this.value; };
+    if (priceRange && priceValue) priceRange.oninput = function () { priceValue.textContent = this.value; };
 
-    document.getElementById('modifySearchInline').addEventListener('click', () => {
-      document.getElementById('from').focus();
-    });
-    document.getElementById('modifySearchTop').addEventListener('click', () => {
-      document.getElementById('from').focus();
-    });
-
-    // Optional: show summary text when form is submitted by your app.js
-    const searchForm = document.getElementById('searchForm');
-    searchForm.addEventListener('submit', () => {
-      const f = document.getElementById('from').value || '—';
-      const t = document.getElementById('to').value || '—';
-      const d = document.getElementById('date').value || '—';
-      const s = document.getElementById('searchSummary');
-      const st = document.getElementById('summaryText');
-      st.textContent = `${f} → ${t} on ${d}`;
-      s.style.display = 'flex';
-    });
-  </script>
-</body>
-</html>
+    document.getElementById('modifySearchInline').addEventListener('click', () => document.getElementById('from').focus());
+    document.getElementById('modifySearchTop').addEvent

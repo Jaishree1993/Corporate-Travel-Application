@@ -1,0 +1,132 @@
+/* ---------------------------
+  Enhanced passenger page styles
+  Append or replace into traveller_style.css or /css/styles.css
+   - Keeps all original classes/IDs intact
+   - Adds clearer booking-summary visuals and responsive tweaks
+---------------------------*/
+
+/* Import already present in your file; keep only once in final file */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
+
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0b5fff;
+  --success:#28a745;
+  --surface-border: rgba(15,23,42,0.06);
+}
+
+/* Body / page shell (slight tweak) */
+body{
+  background-color: var(--bg);
+  color: #222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout helper used by the final HTML: .page, .form-card, .summary-card */
+.page {
+  max-width: 1180px;
+  margin: 18px auto;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 22px;
+  padding: 0 20px;
+  align-items: start;
+}
+
+/* Card surfaces */
+.form-card, .summary-card {
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 10px 30px rgba(11,95,255,0.03);
+}
+
+/* Form card padding override for better spacing */
+.form-card { padding: 20px; }
+.summary-card { padding: 18px; }
+
+/* Headings */
+h1 { font-size: 20px; margin: 0 0 14px 0; font-weight: 800; color: #0f172a; }
+
+/* Form inputs - keep existing IDs unchanged */
+#bookingForm input[type="text"],
+#bookingForm input[type="email"],
+#bookingForm input[type="tel"],
+#bookingForm input[type="hidden"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6eef9;
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+#bookingForm input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(11,95,255,0.06);
+}
+
+/* Labels */
+label { display:flex; flex-direction:column; gap:6px; font-weight:600; color:#243444; font-size:13px; }
+
+/* CTA */
+#bookingForm button[type="submit"] {
+  margin-top: 6px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(180deg,#2bb04a,#28a745);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(40,167,69,0.12);
+  transition: transform .12s ease, box-shadow .12s ease;
+  text-transform: uppercase;
+}
+#bookingForm button[type="submit"]:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(40,167,69,0.16); }
+
+/* Confirmation text */
+#confirmation { margin-top: 10px; font-weight:700; color:var(--accent); }
+
+/* Booking summary visuals */
+.booking-summary, .summary-card {
+  background: linear-gradient(180deg,#fff,#fbfdff);
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 10px 30px rgba(11,95,255,0.03);
+}
+
+.summary-item { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.summary-left { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.airline { font-weight:800; color:#0f172a; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.flight-time { color:var(--muted); font-weight:600; }
+.flight-details { color:var(--muted); font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* price */
+.total-price { font-weight:900; color:#0f172a; font-size:18px; }
+
+/* price breakdown */
+.price-breakdown { margin-top:12px; padding-top:8px; border-top:1px dashed rgba(11,95,255,0.06); display:flex; flex-direction:column; gap:8px; }
+.price-breakdown p { display:flex; justify-content:space-between; color:#243444; font-weight:600; margin:0; }
+.price-breakdown p span{ font-weight:600; color:#333; }
+
+/* Fallback / placeholder styles */
+.placeholder { color:var(--muted); font-weight:600; }
+
+/* Small screen responsive */
+@media (max-width: 980px) {
+  .page { grid-template-columns: 1fr; padding: 12px; }
+  .summary-card { order: 2; }
+  .form-card { order: 1; }
+}
+
+/* Accessibility focus ring for keyboard users */
+:focus { outline: 3px solid rgba(11,95,255,0.12); outline-offset: 2px; }
+
+/* Utility: tight inline meta used by summary details */
+.meta-compact { font-size:13px; color:var(--muted); display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
