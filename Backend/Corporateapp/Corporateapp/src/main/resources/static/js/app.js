@@ -3,20 +3,17 @@ document.getElementById("searchForm").addEventListener("submit", function (e) {
 
   const from = document.getElementById("from").value.trim();
   const to = document.getElementById("to").value.trim();
- const rawDate = document.getElementById("date").value; // already yyyy-MM-dd
-const formattedDate = rawDate;
-
-
-
-
+  const rawDate = document.getElementById("date").value; // yyyy-MM-dd
+  const formattedDate = rawDate;
 
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = "<p>Loading flights...</p>";
 
+  const url = `/api/search/flights?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&date=${encodeURIComponent(formattedDate)}`;
 
-  fetch(`/api/search/flights?from=${from}&to=${to}&date=${formattedDate}`)
+  fetch(url)
     .then(response => {
-      if (!response.ok) throw new Error("Network response was not ok");
+      if (!response.ok) throw new Error("Network response was not ok: " + response.status);
       return response.json();
     })
     .then(data => {
@@ -44,29 +41,45 @@ const formattedDate = rawDate;
         </thead>
         <tbody>
           ${data.map(flight => `
-            <tr>
-              <td>${flight.airline}</td>
-              <td>${flight.origin}</td>
-              <td>${flight.destination}</td>
-              <td>${flight.date}</td>
-              <td>${flight.departure_time}</td>
-              <td>${flight.arrival_time}</td>
-              <td>₹${flight.price}</td>
-              <td>${flight.seats_available}</td>
-      <td><button onclick="redirectToBooking(${flight.flight_id})">Continue</button></td>            </tr>
+            <tr data-flight-id="${flight.flight_id || flight.id || ''}">
+              <td>${flight.airline || ''}</td>
+              <td>${flight.origin || flight.from || ''}</td>
+              <td>${flight.destination || flight.to || ''}</td>
+              <td>${flight.date || ''}</td>
+              <td>${flight.departure_time || ''}</td>
+              <td>${flight.arrival_time || ''}</td>
+              <td>₹${flight.price || ''}</td>
+              <td>${flight.seats_available || flight.seats || ''}</td>
+              <td><button class="continue-btn">Continue</button></td>
+            </tr>
           `).join("")}
         </tbody>
       `;
       resultsDiv.appendChild(table);
+
+      // Attach click handlers for Continue buttons
+      document.querySelectorAll('.continue-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const tr = this.closest('tr');
+          const fid = tr && tr.getAttribute('data-flight-id');
+          if (fid) {
+            redirectToBooking(fid);
+          }
+        });
+      });
     })
     .catch(error => {
       console.error("Error fetching flights:", error);
       resultsDiv.innerHTML = "<p>Error loading flights.</p>";
     });
 });
+
 function redirectToBooking(flightId) {
-  window.location.href = `/booking-form.html?flightId=${flightId}`;
+  // encode flightId though usually numeric
+  const url = `/booking-form.html?flightId=${encodeURIComponent(flightId)}`;
+  window.location.href = url;
 }
+
 
 
 

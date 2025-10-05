@@ -2,13 +2,15 @@ package com.example.corporateapp.Controller;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Optional;
+//import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-import com.example.corporateapp.Model.AppUser;
+//import com.example.corporateapp.Model.AppUser;
 import com.example.corporateapp.Service.UserService;
 
 @Controller
@@ -45,20 +47,23 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String loginSubmit(@RequestParam String email,
-                              @RequestParam String password,
-                              HttpSession session) {
-        Optional<AppUser> opt = userService.authenticate(email, password);
-        if (opt.isEmpty()) {
-            String msg = URLEncoder.encode("Invalid credentials", StandardCharsets.UTF_8);
-            return "redirect:/login.html?error=" + msg;
-        }
+public String loginSubmit(
+    @RequestParam String email,
+    @RequestParam String password,
+    HttpServletRequest request
+) {
+    // Hardcoded credentials
+    String validEmail = "test@aerobook.com";
+    String validPassword = "pass123";
 
-        session.setAttribute("userId", opt.get().getId());
-        session.setAttribute("userEmail", opt.get().getEmail());
-        session.setAttribute("userName", opt.get().getName());
-        return "redirect:/flights";
+    if (email.equals(validEmail) && password.equals(validPassword)) {
+        request.getSession().setAttribute("user", email);
+        return "redirect:/"; // ✅ Redirect to flight search page
+    } else {
+        return "redirect:/loginpage.html?error=true";
     }
+}
+
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
