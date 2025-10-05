@@ -1,19 +1,17 @@
 FROM gitpod/workspace-full
 
-USER gitpod
+USER root
 
-# Set environment variables early
-ENV JAVA_HOME=/home/gitpod/.sdkman/candidates/java/current
+# Install OpenJDK 21 and set it as default
+RUN apt update && \
+    apt install -y openjdk-21-jdk && \
+    update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-21-openjdk-amd64/bin/java 121 && \
+    update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-21-openjdk-amd64/bin/javac 121 && \
+    update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java && \
+    update-alternatives --set javac /usr/lib/jvm/java-21-openjdk-amd64/bin/javac
+
+# Set environment variables globally
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 ENV PATH=$JAVA_HOME/bin:$PATH
-ENV SDKMAN_AUTO_ANSWER=true
 
-# Install Java 21 via SDKMAN and set it as default
-RUN bash -c "source /home/gitpod/.sdkman/bin/sdkman-init.sh && \
-    sdk install java 21-open && \
-    sdk default java 21-open"
-
-# Ensure all future shells use Java 21
-RUN echo 'source "/home/gitpod/.sdkman/bin/sdkman-init.sh" && sdk use java 21-open' >> /home/gitpod/.bash_profile && \
-    echo 'source "/home/gitpod/.sdkman/bin/sdkman-init.sh" && sdk use java 21-open' >> /home/gitpod/.profile && \
-    echo 'export JAVA_HOME=/home/gitpod/.sdkman/candidates/java/current' >> /home/gitpod/.bashrc && \
-    echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /home/gitpod/.bashrc
+USER gitpod
