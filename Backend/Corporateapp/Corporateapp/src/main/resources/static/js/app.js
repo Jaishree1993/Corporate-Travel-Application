@@ -53,8 +53,7 @@ const formattedDate = rawDate;
               <td>${flight.arrival_time}</td>
               <td>₹${flight.price}</td>
               <td>${flight.seats_available}</td>
-              <td><button onclick="book(${flight.flight_id}, ${flight.price})">Book</button></td>
-            </tr>
+      <td><button onclick="redirectToBooking(${flight.flight_id})">Continue</button></td>            </tr>
           `).join("")}
         </tbody>
       `;
@@ -65,7 +64,9 @@ const formattedDate = rawDate;
       resultsDiv.innerHTML = "<p>Error loading flights.</p>";
     });
 });
-
+function redirectToBooking(flightId) {
+  window.location.href = `/booking-form.html?flightId=${flightId}`;
+}
 
 
 

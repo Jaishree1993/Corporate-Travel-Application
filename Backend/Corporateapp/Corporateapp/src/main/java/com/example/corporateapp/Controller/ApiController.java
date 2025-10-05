@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,10 +44,18 @@ public List<Flight> searchFlights(@RequestParam String from,
         return travelService.createBooking(booking);
     }
 
-    @GetMapping("/bookings")
+    /*@GetMapping("/bookings")
     public List<Booking> getBookings() {
         return travelService.getAllBookings();
-    }
+    }*/
+
+    @GetMapping("/bookings")
+public String showBookings(Model model) {
+    List<Booking> bookings = travelService.getAllBookings();
+    model.addAttribute("bookings", bookings);
+    return "bookings"; // matches bookings.html in templates folder
+}
+
     @GetMapping("/all")
 public List<Flight> allFlights() {
     return travelService.getAllFlights();

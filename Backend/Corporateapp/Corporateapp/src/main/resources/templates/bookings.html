@@ -10,7 +10,7 @@
   <table>
     <tr><th>ID</th><th>Passenger</th><th>Flight</th><th>Amount</th><th>Date</th></tr>
     <tr th:each="b : ${bookings}">
-      <td th:text="${b.id}"></td>
+      <td th:text="${b.booking_id}"></td>
       <td th:text="${b.passengerName}"></td>
       <td th:text="${b.flightId}"></td>
       <td th:text="${b.amount}"></td>
