@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroBook - Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <img src="/images/login.png" alt="Airplane wing over clouds">
+            <div class="overlay-text">EXPLORE THE WORLD WITH US</div>
+        </div>
+        <div class="login-right">
+            <div id="msg" style="margin-bottom:12px;color:red"></div>
+
+            <div class="logo">
+                <img src="" alt="AeroBook Logo">
+                <span>AeroBook</span>
+            </div>
+            <h2>Log in to your account</h2>
+
+            <form action="/login" method="post">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="options-row">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="remember"> Remember me
+                        <span class="checkmark"></span>
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn-login">LOG IN</button>
+            </form>
+
+            <div class="social-login">
+                <p>Or log with</p>
+                <div class="social-icons">
+                    <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn apple"><i class="fab fa-apple"></i></a>
+                    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <p class="signup-link">Don't have an account? <a href="/register.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+      // Show server messages passed via query params: ?error=... or ?message=...
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const msgEl = document.getElementById('msg');
+        if (!msgEl) return;
+        if (params.has('error')) {
+          msgEl.style.color = 'red';
+          msgEl.textContent = decodeURIComponent(params.get('error').replace(/\+/g, ' '));
+        } else if (params.has('message')) {
+          msgEl.style.color = 'green';
+          msgEl.textContent = decodeURIComponent(params.get('message').replace(/\+/g, ' '));
+        }
+      })();
+    </script>
+</body>
+</html>
