@@ -1,200 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Passenger Details</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AeroBook - Traveller Information</title>
+  <!-- Preferred: use the path your server exposes, example: /css/traveller_style.css -->
+<link rel="stylesheet" href="/css/traveller_style.css">
 
-  <!-- keep your existing stylesheet -->
-  <link rel="stylesheet" href="/css/traveller_style.css">
+<!-- Fallback (only for immediate visual check if /css/traveller_style.css is blocked) -->
+<style id="traveller-style-fallback" media="screen">
+/* Minimal critical rules to avoid broken layout while the server side is fixed */
+body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
+.traveller-info-container{padding:20px 40px}
+.main-content{display:flex;gap:20px;align-items:flex-start}
+.traveller-form-section{flex:2;background:#fff;border-radius:8px;padding:30px;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
+.booking-summary{flex:1;background:#fff;border-radius:8px;padding:25px;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
+.btn-proceed-payment{width:100%;padding:15px;background:#28a745;color:#fff;border:none;border-radius:5px;cursor:pointer}
+</style>
 
-  <!-- Embedded visual enhancements (safe fallback; will not change IDs or backend) -->
-  <style>
-    :root{
-      --bg:#f4f7fb;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#0b5fff;
-      --success:#28a745;
-      --border:rgba(15,23,42,0.06);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      background:var(--bg);
-      color:#0f172a;
-      -webkit-font-smoothing:antialiased;
-      padding:20px;
-    }
-
-    /* Page layout */
-    .page {
-      max-width:980px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 1fr 360px;
-      gap:20px;
-      align-items:start;
-    }
-
-    /* Keep original H1 but style */
-    h1{
-      font-size:20px;
-      margin:0 0 14px 0;
-      font-weight:800;
-      color:#0f172a;
-    }
-
-    /* Form card */
-    .form-card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:18px;
-      box-shadow:0 10px 30px rgba(11,95,255,0.03);
-    }
-
-    form#bookingForm{display:flex;flex-direction:column;gap:12px}
-
-    /* inputs: keep IDs same, enhance visuals */
-    #bookingForm input[type="text"],
-    #bookingForm input[type="email"],
-    #bookingForm input[type="tel"]{
-      width:100%;
-      padding:10px 12px;
-      border-radius:10px;
-      border:1px solid #e6eef9;
-      background:#fff;
-      font-size:14px;
-      outline:none;
-      transition: box-shadow .12s ease, border-color .12s ease;
-    }
-    #bookingForm input:focus{
-      border-color:var(--accent);
-      box-shadow:0 8px 20px rgba(11,95,255,0.06);
-    }
-
-    /* labels */
-    label{
-      display:flex;
-      flex-direction:column;
-      font-weight:600;
-      color:#243444;
-      gap:6px;
-      font-size:13px;
-    }
-
-    /* Submit CTA */
-    #bookingForm button[type="submit"]{
-      margin-top:6px;
-      padding:11px 14px;
-      border-radius:10px;
-      border:none;
-      background:linear-gradient(180deg,#2bb04a,#28a745);
-      color:#fff;
-      font-weight:800;
-      cursor:pointer;
-      box-shadow:0 10px 26px rgba(40,167,69,0.12);
-      transition:transform .12s ease, box-shadow .12s ease;
-    }
-    #bookingForm button[type="submit"]:hover{
-      transform:translateY(-2px);
-      box-shadow:0 16px 36px rgba(40,167,69,0.16);
-    }
-
-    /* Confirmation area */
-    #confirmation{margin-top:10px;font-weight:700;color:var(--accent)}
-
-    /* Right column: booking summary */
-    .summary-card{
-      background:linear-gradient(180deg,#fff,#fbfdff);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:16px;
-      box-shadow:0 10px 30px rgba(11,95,255,0.03);
-    }
-    .summary-item{display:flex;justify-content:space-between;align-items:center;gap:12px}
-    .summary-left{display:flex;flex-direction:column;gap:6px}
-    .airline{font-weight:800;color:#0f172a}
-    .flight-time{color:var(--muted);font-weight:600}
-    .flight-details{color:var(--muted);font-size:13px}
-    .total-price{font-weight:900;color:#0f172a;font-size:18px}
-
-    .price-breakdown{margin-top:12px;padding-top:8px;border-top:1px dashed rgba(11,95,255,0.06);display:flex;flex-direction:column;gap:8px}
-    .price-breakdown p{display:flex;justify-content:space-between;color:#243444;font-weight:600;margin:0}
-
-    /* Responsive: collapse to single column on narrow screens */
-    @media (max-width:980px){
-      .page{grid-template-columns:1fr; padding:12px}
-      .summary-card{position:relative; top:0}
-    }
-  </style>
 </head>
 <body>
-  <!-- Preserve original IDs and hidden fields so backend integration is unchanged -->
-  <div class="page">
-    <!-- Left: form (keeps your bookingForm id and flightId hidden input intact) -->
-    <div class="form-card">
-      <h1>Passenger Details</h1>
-
-      <form id="bookingForm">
-        <input type="hidden" id="flightId">
-
-        <label for="name">Name
-          <input type="text" id="name" required />
-        </label>
-
-        <label for="email">Email
-          <input type="email" id="email" required />
-        </label>
-
-        <label for="phone">Phone
-          <input type="tel" id="phone" required />
-        </label>
-
-        <button type="submit">Confirm Booking</button>
-      </form>
-
-      <div id="confirmation" aria-live="polite"></div>
+  <header class="navbar">
+    <div class="logo">
+      <img src="https://via.placeholder.com/40x40/007bff/ffffff?text=Logo" alt="AeroBook Logo" />
+      <span>AeroBook</span>
     </div>
+    <nav class="breadcrumb">
+      <a href="#">1. Select Flights</a>
+      <span class="separator">&gt;</span>
+      <a href="#" class="active">2. Traveler Info</a>
+      <span class="separator">&gt;</span>
+      <a href="#">3. Payment</a>
+    </nav>
+    <button class="btn-modify-search">Modify Search</button>
+  </header>
 
-    <!-- Right: booking summary (visual only; does not change backend) -->
-    <aside class="summary-card" aria-label="Booking summary">
-      <div class="summary-item" role="group" aria-label="flight">
-        <div class="summary-left">
-          <div class="airline">British Airways</div>
-          <div class="flight-time">10:00 - 15:30</div>
-          <div class="flight-details">London (LHR) to New York (JFK)</div>
-        </div>
-        <div class="summary-price">
-          <div class="total-price">$450</div>
-        </div>
-      </div>
+  <div class="traveller-info-container">
+    <div class="main-content">
+      <section class="traveller-form-section">
+        <h2>Traveller Information</h2>
+        <form id="bookingForm">
+          <input type="hidden" id="flightId" />
 
-      <div class="price-breakdown" aria-hidden="false">
-        <p><span>Base Fare</span><span>$400</span></p>
-        <p><span>Taxes & Fees</span><span>$50</span></p>
-        <p class="grand-total"><strong>Total Price</strong><strong>$450</strong></p>
-      </div>
-    </aside>
+          <div class="traveller-block">
+            <h3>Adult 1</h3>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="firstName1">First Name</label>
+                <input type="text" id="firstName1" name="firstName1" required />
+              </div>
+              <div class="input-group">
+                <label for="lastName1">Last Name</label>
+                <input type="text" id="lastName1" name="lastName1" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="dob1">Date of Birth</label>
+                <input type="date" id="dob1" name="dob1" required />
+              </div>
+              <div class="input-group">
+                <label for="gender1">Gender</label>
+                <select id="gender1" name="gender1" required>
+                  <option value="">Select</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="nationality1">Nationality</label>
+                <input type="text" id="nationality1" name="nationality1" required />
+              </div>
+              <div class="input-group">
+                <label for="phone1">Phone Number</label>
+                <input type="tel" id="phone1" name="phone1" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="passportNumber1">Passport Number</label>
+                <input type="text" id="passportNumber1" name="passportNumber1" required />
+              </div>
+              <div class="input-group">
+                <label for="passportExpiry1">Passport Expiry</label>
+                <input type="month" id="passportExpiry1" name="passportExpiry1" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="additional-options">
+            <label class="checkbox-container">Add Travel Insurance
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-proceed-payment">PROCEED TO PAYMENT</button>
+        </form>
+      </section>
+
+      <aside class="booking-summary">
+        <h3>Your Booking Summary</h3>
+        <div class="summary-card">
+          <div class="summary-item">
+            <p class="airline">—</p>
+            <p class="flight-time">—</p>
+            <p class="flight-details">—</p>
+          </div>
+          <div class="summary-price">
+            <p class="total-price">—</p>
+          </div>
+        </div>
+        <div class="price-breakdown">
+          <p>Base Fare <span>—</span></p>
+          <p>Taxes & Fees <span>—</span></p>
+          <p class="grand-total">Total Price <span>—</span></p>
+        </div>
+      </aside>
+    </div>
   </div>
 
   <script>
-    /* keep your original script intact and unmodified logic */
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
       const flightId = params.get("flightId");
       document.getElementById("flightId").value = flightId;
+
+      const flightData = JSON.parse(localStorage.getItem('selectedFlight') || '{}');
+
+      if (flightData && flightData.flight_id === flightId) {
+        document.querySelector('.airline').textContent = flightData.airline;
+        document.querySelector('.flight-time').textContent = `${flightData.departure_time} - ${flightData.arrival_time}`;
+        document.querySelector('.flight-details').textContent = `${flightData.origin} to ${flightData.destination}`;
+        document.querySelector('.total-price').textContent = `₹${flightData.price}`;
+
+        document.querySelector('.price-breakdown').innerHTML = `
+          <p>Base Fare <span>₹${flightData.price}</span></p>
+          <p>Taxes & Fees <span>₹0</span></p>
+          <p class="grand-total">Total Price <span>₹${flightData.price}</span></p>
+        `;
+      }
 
       document.getElementById("bookingForm").addEventListener("submit", function (e) {
         e.preventDefault();
 
         const booking = {
           flightId: flightId,
-          passengerName: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          phone: document.getElementById("phone").value
+          firstName: document.getElementById("firstName1").value,
+          lastName: document.getElementById("lastName1").value,
+          dob: document.getElementById("dob1").value,
+          gender: document.getElementById("gender1").value,
+          nationality: document.getElementById("nationality1").value,
+          phone: document.getElementById("phone1").value,
+          passportNumber: document.getElementById("passportNumber1").value,
+          passportExpiry: document.getElementById("passportExpiry1").value
         };
 
         fetch("/api/book", {
@@ -204,12 +171,12 @@
         })
         .then(res => res.json())
         .then(data => {
-          console.log("Booking response:", data);
-          document.getElementById("confirmation").innerHTML = `<p>Booking confirmed! ID: ${data.booking_id}</p>`;
+          alert(`Booking confirmed! ID: ${data.booking_id}`);
+          localStorage.removeItem('selectedFlight');
         })
         .catch(err => {
           console.error("Booking failed:", err);
-          document.getElementById("confirmation").innerHTML = `<p>Booking failed. Try again.</p>`;
+          alert("Booking failed. Please try again.");
         });
       });
     });
