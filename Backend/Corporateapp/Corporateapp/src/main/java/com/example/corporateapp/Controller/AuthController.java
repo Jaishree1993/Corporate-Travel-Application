@@ -27,10 +27,16 @@ public class AuthController {
         return "redirect:/login.html";
     }
 
-    @GetMapping({"/register", "/register.html"})
+    /*@GetMapping({"/register", "/register.html"})
     public String registerPage() {
         return "redirect:/register.html";
-    }
+    }*/
+
+
+    @GetMapping("/register")
+    public String registerPage() {
+    return "forward:/register.html";
+}
 
     @PostMapping("/register")
     public String registerSubmit(@RequestParam String name,
