@@ -20,7 +20,8 @@ public class Booking {
      @JsonProperty("booking_id") 
     private Long booking_id;
     private Long flightId;
-    private String passengerName;
+    private String firstName;
+    private String lastName;
     private double amount;
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 }
