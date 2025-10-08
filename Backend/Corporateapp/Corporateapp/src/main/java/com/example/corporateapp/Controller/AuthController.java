@@ -39,36 +39,38 @@ public class AuthController {
 }
 
     @PostMapping("/register")
-    public String registerSubmit(@RequestParam String name,
-                                 @RequestParam String email,
-                                 @RequestParam String password) {
-        if (userService.emailExists(email)) {
-            String msg = URLEncoder.encode("Email already registered", StandardCharsets.UTF_8);
-            return "redirect:/register.html?error=" + msg;
-        }
-
-        userService.register(name, email, password);
-        String msg = URLEncoder.encode("Registration successful. Please log in.", StandardCharsets.UTF_8);
-        return "redirect:/login.html?message=" + msg;
+public String registerSubmit(@RequestParam String name,
+                             @RequestParam String email,
+                             @RequestParam String password,
+                             @RequestParam(required = false) String confirmPassword) {
+    if (confirmPassword != null && !password.equals(confirmPassword)) {
+        String msg = URLEncoder.encode("Passwords do not match", StandardCharsets.UTF_8);
+        return "redirect:/register.html?error=" + msg;
     }
 
-    @PostMapping("/login")
-public String loginSubmit(
-    @RequestParam String email,
-    @RequestParam String password,
-    HttpServletRequest request
-) {
-    // Hardcoded credentials
-    String validEmail = "test@aerobook.com";
-    String validPassword = "pass123";
-
-    if (email.equals(validEmail) && password.equals(validPassword)) {
-        request.getSession().setAttribute("user", email);
-        return "redirect:/"; // ✅ Redirect to flight search page
-    } else {
-        return "redirect:/loginpage.html?error=true";
+    if (userService.emailExists(email)) {
+        String msg = URLEncoder.encode("Email already registered", StandardCharsets.UTF_8);
+        return "redirect:/register.html?error=" + msg;
     }
+
+    userService.register(name, email, password);
+    String msg = URLEncoder.encode("Registration successful. Please log in.", StandardCharsets.UTF_8);
+    return "redirect:/loginpage.html?message=" + msg;
 }
+
+
+   @PostMapping("/login")
+public String loginSubmit(@RequestParam String email,
+                          @RequestParam String password,
+                          HttpServletRequest request) {
+    return userService.authenticate(email, password)
+            .map(user -> {
+                request.getSession().setAttribute("user", user.getEmail());
+                return "redirect:/";
+            })
+            .orElse("redirect:/loginpage.html?error=true");
+}
+
 
 
     @GetMapping("/logout")
