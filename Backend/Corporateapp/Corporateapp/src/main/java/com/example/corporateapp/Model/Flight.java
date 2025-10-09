@@ -1,16 +1,13 @@
 package com.example.corporateapp.Model;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Data
@@ -29,12 +26,15 @@ public class Flight {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "h:mm a")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime departure_time;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "h:mm a")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime arrival_time;
 
     private double price;
     private int seats_available;
+
+    // Required for stops filter
+    private int stops; // 0 = Non-stop, 1 = 1 stop, 2 = 2+ stops
 }

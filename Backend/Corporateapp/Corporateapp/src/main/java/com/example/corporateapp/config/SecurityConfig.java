@@ -13,20 +13,15 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-    .requestMatchers(
-    "/", "/loginpage.html", "/booking-form.html", "/css/**", "/images/**", "/js/**",
-    "/login", "/register", "/api/search/**", "/api/book","/bookings","/register.html"
-).permitAll()
-
-    .anyRequest().authenticated()
-)
-
-           /* .formLogin(form -> form
-    .loginPage("/loginpage.html")
-    .defaultSuccessUrl("/", true) // ✅ Redirect to controller that serves index.html
-    .permitAll()
-)*/
+                .requestMatchers(
+                    "/", "/index.html", "/loginpage.html", "/booking-form.html",
+                    "/css/**", "/images/**", "/js/**",
+                    "/login", "/register", "/api/**", "/bookings", "/register.html"
+                ).permitAll()
+                .anyRequest().permitAll()
+            )
             .formLogin(form -> form.disable())
+            .httpBasic(basic -> basic.disable())
             .logout(logout -> logout.permitAll());
 
         return http.build();

@@ -5,13 +5,45 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Corporate Travel — Flight Search</title>
 
-  <!-- external stylesheet (ensure file exists at /css/srp_style.css) -->
   <link rel="stylesheet" href="/css/srp_style.css">
 
-  <!-- small fallback embedded styles (optional) -->
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; }
-    body { background: #f4f7fb; color: #0f172a; line-height: 1.4; }
+    body { background: #f4f7fb; color: #0f172a; line-height: 1.5; }
+    .page-top, .page-foot { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #fff; border-bottom: 1px solid #e5e7eb; }
+    .page-foot { border-top: 1px solid #e5e7eb; border-bottom: none; margin-top: 24px; }
+    .brand { display: flex; gap: 10px; align-items: center; }
+    .brand-title { font-weight: 700; }
+    .brand-sub { font-size: 12px; color: #6b7280; }
+    .wrap { max-width: 1200px; margin: 16px auto; padding: 0 16px; }
+    .search-panel { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin-bottom: 16px; }
+    .search-form { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: end; }
+    .field label.small { font-size: 12px; color: #374151; display: block; margin-bottom: 6px; }
+    .field input { width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; }
+    .actions { display: flex; gap: 8px; }
+    .btn { padding: 8px 12px; border-radius: 6px; border: 1px solid transparent; cursor: pointer; }
+    .btn.primary { background: #2563eb; color: #fff; }
+    .btn.ghost { background: #fff; border-color: #d1d5db; color: #111827; }
+    .results-grid { display: grid; grid-template-columns: 280px 1fr; gap: 16px; }
+    .filters { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; }
+    .filters h3 { font-size: 16px; margin-bottom: 12px; }
+    .filter-row { margin-bottom: 14px; }
+    .filter-row .label.small { font-size: 12px; color: #374151; margin-bottom: 8px; }
+    .chk { display: block; margin: 6px 0; font-size: 14px; }
+    .slider { width: 100%; }
+    .results-box { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; }
+    .results-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .flight-card { display: flex; justify-content: space-between; align-items: center; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 10px; }
+    .flight-card .left { display: flex; gap: 12px; align-items: center; }
+    .flight-card .logo { width: 36px; height: 36px; border-radius: 6px; background: #eef2ff; color: #1f2937; display: grid; place-items: center; font-weight: 700; }
+    .flight-card .meta .route { font-weight: 600; }
+    .flight-card .details { font-size: 12px; color: #6b7280; display: flex; gap: 8px; margin-top: 4px; }
+    .flight-card .price { text-align: right; }
+    .flight-card .amt { font-weight: 700; font-size: 18px; margin-bottom: 8px; }
+    .muted { color: #6b7280; font-size: 12px; }
+    @media (max-width: 900px) {
+      .results-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -23,90 +55,84 @@
         <div class="brand-sub">Business bookings made simple</div>
       </div>
     </div>
-
     <nav class="steps" aria-hidden="true">
       <div class="step">1. Select Flights</div>
       <div class="step">2. Traveler Info</div>
       <div class="step">3. Payment</div>
     </nav>
-
     <div>
-      <button class="btn-top btn-ghost" id="modifySearchTop">Modify Search</button>
+      <button class="btn ghost" id="modifySearchTop">Modify Search</button>
     </div>
   </header>
 
   <div class="wrap">
+    <!-- Search form -->
     <section class="search-panel">
-      <!-- KEEP these IDs exactly so backend and app.js remain functional -->
       <form id="searchForm" class="search-form" autocomplete="off">
         <div class="field">
           <label class="small" for="from"><strong>From</strong></label>
           <input id="from" name="from" type="text" required placeholder="City or airport" />
         </div>
-
         <div class="field">
           <label class="small" for="to"><strong>To</strong></label>
           <input id="to" name="to" type="text" required placeholder="City or airport" />
         </div>
-
         <div class="field">
           <label class="small" for="date"><strong>Date</strong></label>
           <input id="date" name="date" type="date" required />
         </div>
-
         <div class="actions">
           <button type="submit" class="btn primary">Search</button>
           <button type="button" class="btn ghost" id="modifySearchInline">Modify</button>
         </div>
       </form>
-
-      <!-- visual summary that can be populated by your JS -->
-      <div id="searchSummary" class="search-summary" style="display:none; margin-top:12px; padding:10px; border-radius:6px; background:#fafcff; border:1px dashed #dfe9ff;">
-        <div class="summary-left"><i class="fas fa-plane-departure"></i> <span id="summaryText"></span></div>
-        <div><button class="btn ghost" id="compactModify">Modify Search</button></div>
-      </div>
     </section>
 
     <div class="results-grid">
+      <!-- Filters -->
       <aside class="filters" aria-label="Filters">
         <h3>Filters</h3>
+
+        <!-- Price filter -->
         <div class="filter-row">
           <div class="label small"><strong>Price range</strong></div>
-          <input id="priceRange" class="slider" type="range" min="0" max="1000" value="500" />
-          <div class="small">Up to <strong>₹<span id="priceValue">500</span></strong></div>
+          <input id="priceRange" class="slider" type="range" min="0" max="20000" value="15000" />
+          <div class="small">Up to <strong>₹<span id="priceValue">15000</span></strong></div>
         </div>
 
-        <div class="filter-row">
+        <!-- Stops filter -->
+        <div class="filter-row" id="stopsFilter">
           <div class="label small"><strong>Stops</strong></div>
-          <label class="chk"><input type="checkbox" checked /> Non-stop</label>
-          <label class="chk"><input type="checkbox" /> 1 Stop</label>
-          <label class="chk"><input type="checkbox" /> 2+ Stops</label>
+          <label class="chk"><input type="radio" name="stops" value="" checked> Any</label>
+          <label class="chk"><input type="radio" name="stops" value="0"> Non-stop</label>
+          <label class="chk"><input type="radio" name="stops" value="1"> 1 Stop</label>
+          <label class="chk"><input type="radio" name="stops" value="2"> 2+ Stops</label>
         </div>
 
-        <div class="filter-row">
+        <!-- Departure filter -->
+        <div class="filter-row" id="departureFilter">
           <div class="label small"><strong>Departure</strong></div>
-          <label class="chk"><input type="checkbox" /> Morning</label>
-          <label class="chk"><input type="checkbox" /> Afternoon</label>
-          <label class="chk"><input type="checkbox" /> Evening</label>
+          <label class="chk"><input type="radio" name="departureTime" value="" checked> Any</label>
+          <label class="chk"><input type="radio" name="departureTime" value="morning"> Morning</label>
+          <label class="chk"><input type="radio" name="departureTime" value="afternoon"> Afternoon</label>
+          <label class="chk"><input type="radio" name="departureTime" value="evening"> Evening</label>
         </div>
       </aside>
 
+      <!-- Results -->
       <section class="results-box" aria-live="polite">
         <div class="results-top">
           <div class="result-count" id="resultCount">Enter search and click Search</div>
           <div class="sort-select">
             <select id="sortSelect">
-              <option value="cheapest">Cheapest</option>
+                            <option value="cheapest">Cheapest</option>
               <option value="quickest">Quickest</option>
               <option value="best">Best</option>
             </select>
           </div>
         </div>
 
-        <!-- This is the exact container your app.js writes into -->
         <div id="results">
-          
-          <!-- Default placeholder (removed when search returns results) -->
           <div class="empty-placeholder" style="padding:28px; text-align:center; color:#6b7280;">
             <div style="font-weight:700; margin-bottom:6px;">No results yet</div>
             <div class="muted">Use the search form above to find flights</div>
@@ -121,14 +147,7 @@
     <div class="muted">Internal demo</div>
   </footer>
 
-  <!-- Keep external app.js intact so existing fetch and rendering logic continues to work -->
+  <!-- Link to your app logic -->
   <script src="/js/app.js"></script>
-
-  <script>
-    // Keep UI helpers; these do not interfere with your backend logic
-    const priceRange = document.getElementById('priceRange');
-    const priceValue = document.getElementById('priceValue');
-    if (priceRange && priceValue) priceRange.oninput = function () { priceValue.textContent = this.value; };
-
-    document.getElementById('modifySearchInline').addEventListener('click', () => document.getElementById('from').focus());
-    document.getElementById('modifySearchTop').addEvent
+</body>
+</html>
