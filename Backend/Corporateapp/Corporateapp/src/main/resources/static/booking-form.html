@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AeroBook - Traveller Information</title>
-  <!-- Preferred: use the path your server exposes, example: /css/traveller_style.css -->
-<link rel="stylesheet" href="/css/traveller_style.css">
+  <link rel="stylesheet" href="/css/traveller_style.css">
 
-<!-- Fallback (only for immediate visual check if /css/traveller_style.css is blocked) -->
-<style id="traveller-style-fallback" media="screen">
-/* Minimal critical rules to avoid broken layout while the server side is fixed */
-body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
-.navbar{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
-.traveller-info-container{padding:20px 40px}
-.main-content{display:flex;gap:20px;align-items:flex-start}
-.traveller-form-section{flex:2;background:#fff;border-radius:8px;padding:30px;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
-.booking-summary{flex:1;background:#fff;border-radius:8px;padding:25px;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
-.btn-proceed-payment{width:100%;padding:15px;background:#28a745;color:#fff;border:none;border-radius:5px;cursor:pointer}
-</style>
-
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin:0; background:#f5f7fa; color:#333; }
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.05); }
+    .traveller-info-container { padding:20px 40px; }
+    .main-content { display:flex; gap:20px; align-items:flex-start; }
+    .traveller-form-section { flex:2; background:#fff; border-radius:8px; padding:30px; box-shadow:0 2px 5px rgba(0,0,0,0.05); }
+    .booking-summary { flex:1; background:#fff; border-radius:8px; padding:25px; box-shadow:0 2px 5px rgba(0,0,0,0.05); }
+    .btn-proceed-payment { width:100%; padding:15px; background:#28a745; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+    #confirmationMessage { display:none; margin-top:20px; padding:20px; border-radius:8px; background:#ecfdf5; border:1px solid #10b981; color:#065f46; font-size:16px; font-weight:600; text-align:center; }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -45,53 +42,49 @@ body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
 
           <div class="traveller-block">
             <h3>Adult 1</h3>
-
             <div class="form-row">
               <div class="input-group">
                 <label for="firstName1">First Name</label>
-                <input type="text" id="firstName1" name="firstName1" required />
+                <input type="text" id="firstName1" required />
               </div>
               <div class="input-group">
                 <label for="lastName1">Last Name</label>
-                <input type="text" id="lastName1" name="lastName1" required />
+                <input type="text" id="lastName1" required />
               </div>
             </div>
-
             <div class="form-row">
               <div class="input-group">
                 <label for="dob1">Date of Birth</label>
-                <input type="date" id="dob1" name="dob1" required />
+                <input type="date" id="dob1" required />
               </div>
               <div class="input-group">
                 <label for="gender1">Gender</label>
-                <select id="gender1" name="gender1" required>
+                <select id="gender1" required>
                   <option value="">Select</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
                 </select>
               </div>
             </div>
-
             <div class="form-row">
               <div class="input-group">
                 <label for="nationality1">Nationality</label>
-                <input type="text" id="nationality1" name="nationality1" required />
+                <input type="text" id="nationality1" required />
               </div>
               <div class="input-group">
                 <label for="phone1">Phone Number</label>
-                <input type="tel" id="phone1" name="phone1" required />
+                <input type="tel" id="phone1" required />
               </div>
             </div>
-
             <div class="form-row">
               <div class="input-group">
                 <label for="passportNumber1">Passport Number</label>
-                <input type="text" id="passportNumber1" name="passportNumber1" required />
+                <input type="text" id="passportNumber1" required />
               </div>
               <div class="input-group">
                 <label for="passportExpiry1">Passport Expiry</label>
-                <input type="month" id="passportExpiry1" name="passportExpiry1" required />
+                <input type="month" id="passportExpiry1" required />
               </div>
             </div>
           </div>
@@ -105,6 +98,9 @@ body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
 
           <button type="submit" class="btn-proceed-payment">Book</button>
         </form>
+
+        <!-- Confirmation message -->
+        <div id="confirmationMessage"></div>
       </section>
 
       <aside class="booking-summary">
@@ -127,7 +123,6 @@ body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
       </aside>
     </div>
   </div>
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
@@ -141,7 +136,6 @@ body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
         document.querySelector('.flight-time').textContent = `${flightData.departure_time} - ${flightData.arrival_time}`;
         document.querySelector('.flight-details').textContent = `${flightData.origin} to ${flightData.destination}`;
         document.querySelector('.total-price').textContent = `₹${flightData.price}`;
-
         document.querySelector('.price-breakdown').innerHTML = `
           <p>Base Fare <span>₹${flightData.price}</span></p>
           <p>Taxes & Fees <span>₹0</span></p>
@@ -171,7 +165,18 @@ body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
         })
         .then(res => res.json())
         .then(data => {
-          alert(`Booking confirmed! ID: ${data.booking_id}`);
+          // Hide form
+          document.getElementById("bookingForm").style.display = "none";
+
+          // Show styled confirmation
+          const msgDiv = document.getElementById("confirmationMessage");
+          msgDiv.style.display = "block";
+          msgDiv.innerHTML = `
+            🎉 Congrats, ${booking.firstName}!<br>
+            Your booking is confirmed.<br>
+            <span style="font-size:14px; font-weight:400;">Booking ID: ${data.booking_id}</span>
+          `;
+
           localStorage.removeItem('selectedFlight');
         })
         .catch(err => {
@@ -179,7 +184,8 @@ body{font-family:'Poppins',sans-serif;margin:0;background:#f5f7fa;color:#333}
           alert("Booking failed. Please try again.");
         });
       });
-    });
+  });
   </script>
+  <script src="/js/booking.js"></script>
 </body>
 </html>
